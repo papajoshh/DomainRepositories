@@ -1,0 +1,47 @@
+@startuml
+skin rose
+skinparam componentstyle uml1
+skinparam ranksep 50
+skinparam nodesep 75
+
+component Sokoban
+component Penguin
+component Pushable
+component Pusher
+component Death
+component Destroy
+component Bridge
+component PowerGenerator
+
+component IceWalls
+component Water
+component Igloo
+
+package Boxes{
+
+component PowerSupplyBoxes
+component WoodBoxes
+}
+
+component Spikes
+
+Penguin -d-> Igloo
+Penguin --> Water
+Penguin -u-> Pusher
+Penguin --> Death
+
+Pusher -u-> Pushable
+PowerSupplyBoxes-d-> PowerGenerator
+
+Boxes -> Water
+Boxes -d-> Destroy
+
+Water --> Death
+Water --> Destroy
+
+Spikes -u-> Death
+Spikes -u-> Destroy
+Boxes --> Pushable
+
+PowerGenerator --> Bridge
+@enduml
