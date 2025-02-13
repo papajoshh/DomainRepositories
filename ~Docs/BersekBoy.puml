@@ -1,0 +1,74 @@
+@startuml
+skin rose
+skinparam componentstyle uml1
+
+
+component BersekBoy
+component Suits
+
+
+
+component Shop
+component Upgrades
+component Death
+component Level
+component Base
+
+component PeopleToRescue
+component RescueScore
+component Score
+component Coins
+component BCoins
+
+package HeroStats{
+component Health
+component Energy
+component BersekEnergy
+}
+package Enemies{
+component NormalEnemy
+component Bosses
+}
+package EnemyAbilities{
+component Attack
+component SpecialAttack
+component Defend
+}
+package HeroAbilities{
+component Jump
+component Dash
+component Dive
+component HeavyAttack
+component BersekAttack
+}
+
+Level --> Enemies
+Level --> BersekBoy
+Level --> PeopleToRescue
+Level --> BCoins
+Level --> Coins
+
+BersekBoy --> Suits
+BersekBoy --> HeroAbilities
+BersekBoy -> Death
+BersekBoy -r-> HeroStats
+BersekBoy -u-> PeopleToRescue
+BersekBoy --> Coins
+
+HeroStats -> HeroAbilities
+
+Suits --> HeroAbilities
+
+Enemies --> BersekBoy
+Enemies --> EnemyAbilities
+Enemies -> Death
+Enemies --> Coins
+Score --> Enemies
+
+RescueScore -d-> PeopleToRescue
+Base -u-> Shop
+Shop -r-> Upgrades
+Shop -u-> Coins
+Upgrades -> HeroStats
+
+@enduml
