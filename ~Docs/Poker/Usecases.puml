@@ -1,0 +1,25 @@
+@startuml
+skin rose
+
+actor Jugador
+actor Crupier
+actor Juez
+
+package Juego{
+usecase MostrarCartas
+usecase HacerEnvite
+usecase Descartar
+usecase RecibirCarta
+}
+
+usecase Repartir
+
+usecase DeclararGanadoresYPerdedores
+usecase EvaluarManos
+
+Jugador -- Juego
+Crupier -- Repartir
+
+Juez -- DeclararGanadoresYPerdedores
+Juez -- EvaluarManos
+@enduml

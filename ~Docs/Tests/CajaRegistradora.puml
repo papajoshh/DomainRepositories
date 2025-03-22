@@ -1,0 +1,34 @@
+@startuml
+skin rose
+
+rectangle Jugador
+rectangle CajaRegistradora
+rectangle Botones
+rectangle Contraseña
+rectangle Cartel
+rectangle Chinchetas
+rectangle SFX
+rectangle VFX
+rectangle AccionContextual
+rectangle Cámara
+rectangle Puerta
+
+Jugador -l-> Botones: interactua con los
+Jugador -> CajaRegistradora: interactua con
+Jugador *-d- Cámara
+
+CajaRegistradora *-u- Botones
+CajaRegistradora *-d- Contraseña
+CajaRegistradora -> AccionContextual: inicia
+CajaRegistradora -l-> SFX: reproduce
+CajaRegistradora -l-> Puerta: abre
+
+AccionContextual -> Cámara: mueve
+
+Botones -l-> SFX: reproduce
+
+Cartel -> Contraseña: muestra
+Cartel *-d- Chinchetas
+
+Puerta *-u- VFX
+@enduml

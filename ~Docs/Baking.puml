@@ -1,0 +1,30 @@
+@startuml
+skin rose
+skinparam componentstyle uml1
+skinparam ranksep 50
+skinparam nodesep 75
+
+component Cooking
+component Days
+package Events{
+component Dates
+}
+component Dialogues
+
+component Reviews
+component Cookbook
+component Minigames
+
+Cooking -d-> Cookbook
+Cooking -> Minigames
+
+Reviews -> Cooking
+
+Days -d-> Events
+
+Events -> Dialogues
+
+Events -d-> Minigames
+Events -l-> Dialogues
+
+@enduml

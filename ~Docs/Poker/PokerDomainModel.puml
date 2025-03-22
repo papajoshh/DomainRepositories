@@ -1,0 +1,85 @@
+@startuml
+skin rose
+scale max 2000 height
+
+package Jugadas{
+rectangle As
+rectangle Repoker
+rectangle EscaleraDeColor
+rectangle Repoker
+rectangle Full
+rectangle Color
+rectangle Escalera
+rectangle Trio
+rectangle DoblesParejas
+rectangle Pareja
+rectangle CartaMayor
+}
+
+rectangle Mazo
+rectangle Cartas
+rectangle Colores
+package Palos{
+rectangle Picas
+rectangle Corazones
+rectangle Diamantes
+rectangle Treboles
+}
+
+rectangle Numeros
+
+
+rectangle Fases
+rectangle Repartir
+rectangle Mano
+rectangle Envite
+rectangle Descarte
+rectangle Mostrar
+
+
+rectangle Victoria
+rectangle Derrota
+rectangle Eliminación
+
+rectangle Jugadores
+rectangle Crupier
+rectangle Dealer
+
+rectangle Mesa
+rectangle Tapete
+rectangle Fichas
+rectangle Rondas
+
+
+Jugadas -l-> Mano: se hacen con
+
+Cartas -l-> Colores: tienen
+Cartas -r-> Numeros: tienen
+Cartas -d-> Palos: tienen
+Cartas *-- Mano
+
+Mazo *-- Cartas
+Crupier -d-> Cartas: reparte
+Crupier -u-> Repartir
+Crupier -l-> Tapete: reparte sobre el
+Crupier -r-> Jugadores: reparte a
+
+Jugadores -d-> Jugadas: pueden hacer
+Jugadores -r-> Fichas: tienen
+Jugadores -u-> Envite: apuestan en el
+Jugadores -u-> Dealer: pueden ser
+Jugadores *- Mano
+
+Fases *-- Envite
+Fases *-- Repartir: se inicia con
+Fases *-- Mostrar
+Fases *-- Descarte
+
+Rondas *-- Fases
+
+Victoria --> Mostrar: se decide al
+Derrota --> Mostrar: se decide al
+Eliminación -u-> Mostrar: se decide al
+
+Mesa *- Jugadores
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+skin rose
+
+rectangle Huevo
+rectangle Correa
+rectangle MandoAdistancia
+rectangle Velocidad
+rectangle Modo
+rectangle Vibración
+rectangle Lubricante
+rectangle Batería
+rectangle Gustito
+
+Velocidad --* Vibración: 7
+Modo --* Vibración: 3
+MandoAdistancia --> Velocidad: aumenta/baja la
+MandoAdistancia --> Modo: cambia el
+Vibración --* Huevo
+Correa --* Huevo
+Batería --* Huevo
+Huevo --> Gustito: da
+Huevo --> Lubricante: es mejor usarlo con
+@enduml

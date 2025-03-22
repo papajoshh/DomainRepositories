@@ -1,0 +1,37 @@
+@startuml
+skin rose
+skinparam componentstyle uml1
+skinparam ranksep 0
+skinparam nodesep 75
+
+component Cowbee
+component Bees
+package BeeAbilities{
+component CircularPatrol
+component Reinforzed
+}
+component Bullets
+component Score
+component  Waves
+component Death
+component Life
+
+
+Bees -> Cowbee
+Bees -> Life
+Bees -u--> Death
+
+
+Cowbee -> Death
+Cowbee -d-> Bullets
+Cowbee -l-> Life
+
+Score -d-> Bees
+Waves -> Bees
+
+Life -> Death
+
+Bullets -> Bees
+
+Bees -d-> BeeAbilities
+@enduml

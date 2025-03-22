@@ -70,5 +70,6 @@ Base -u-> Shop
 Shop -r-> Upgrades
 Shop -u-> Coins
 Upgrades -> HeroStats
+Upgrades -> HeroAbilities
 
 @enduml

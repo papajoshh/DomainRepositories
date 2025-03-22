@@ -1,0 +1,14 @@
+@startuml
+skin rose
+
+entity Carta
+entity Jugador
+boundary Mazo
+
+control Repartir
+
+Repartir -> Mazo: 1.coge una carta
+Repartir -u-> Jugador : 2a. Elige al siguiente
+Repartir -u-> Jugador : 2b. Le entrega la carta
+
+@enduml
